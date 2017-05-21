@@ -1,7 +1,7 @@
 from qa.views import test
 
 urlpatterns = patterns('qa.views',
-    url(r'^$', test, name='qaroot'),
+    url(r'^$', test, name='home'),
     url(r'^login/', test, name='login'),
     url(r'^question/(?P<id>\d+)/$', test, name='question-id'),
     url(r'^signup/', test, name='signup'),
@@ -9,4 +9,3 @@ urlpatterns = patterns('qa.views',
     url(r'^news/', test, name='news'),
     url(r'^popular/', test, name='popular'),
 )
-
