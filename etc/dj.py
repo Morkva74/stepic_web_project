@@ -1,0 +1,13 @@
+#   gunicorn -c /absolute/path/to/this/file
+
+CONFIG = {
+    'mode': 'wsgi',
+    'working_dir': '/home/box/web/ask',
+    'args': (
+        '--bind=0.0.0.0:8000',
+        '--workers=4',
+        '--timeout=60',
+        '--log-file=/home/box/gunicorn.log',
+        'wsgi',
+    )
+}
