@@ -26,7 +26,6 @@ class Question(models.Model):
         return '/question/%d/' % self.pk
 
     class Meta:
-        db_table = 'qaQuestions'
         ordering = ['-added_at']
 
 class Answer(models.Model):
@@ -36,5 +35,4 @@ class Answer(models.Model):
     author = models.ForeignKey(User)
 	
     class Meta:
-        db_table = 'qaAnswer'
         ordering = ['-added_at']
