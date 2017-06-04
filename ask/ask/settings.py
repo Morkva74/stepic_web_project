@@ -55,7 +55,9 @@ ROOT_URLCONF = 'ask.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+    '/home/box/web/ask/qa/templates',
+],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,7 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ask.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
