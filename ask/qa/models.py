@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class QuestionManager(models.Manager):      
+class QuestionManager(models.Manager):
     def new(self):
         return Question.objects.order_by('-added_at')
 
@@ -21,9 +21,12 @@ class Question(models.Model):
     author = models.ForeignKey(User, related_name="question_author")
     likes = models.ManyToManyField(User, related_name="question_likes", blank=True)
     objects = QuestionManager()
-	
+
     def get_absolute_url(self):
         return '/question/%d/' % self.pk
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         ordering = ['-added_at']
@@ -33,6 +36,8 @@ class Answer(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
     question = models.ForeignKey(Question)
     author = models.ForeignKey(User)
-	
+
     class Meta:
         ordering = ['-added_at']
+    def __str__(self):
+        return 'Answer by {}'.format(self.author)
